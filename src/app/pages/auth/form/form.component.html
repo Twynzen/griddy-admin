@@ -1,0 +1,33 @@
+<section class="auth-form">
+    <div class="text-center">
+        <h3 class="h3">{{options.label}}</h3>
+    </div>
+    <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary">{{options.label}}</button>
+        </div>
+        <div class="text-center mt-5">
+            <ng-container *ngIf="options.id === 'Sign In'; else showSignTemplate">
+
+            </ng-container>
+            <a [routerLink]="['/sign-up']" class="text-black"></a>
+        </div>
+    </form>
+    <ng-template #showSignTemplate>
+        <a [routerLink]="['/sign-in']" class="text-black">
+        Already have an account? <small>Sign In here</small>
+      </a>
+    </ng-template>
+
+
+
+</section>

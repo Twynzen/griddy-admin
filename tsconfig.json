@@ -2,6 +2,14 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@home/*":["src/app/pages/home/*"],
+      "@auth/*":["src/app/pages/auth/*"],
+
+      "@shared/*":["src/app/pages/shared/*"],
+      "@env/*":["src/app/environment/*"]
+
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
