@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '@auth/services/auth.services';
 import { ACTIONS } from 'src/app/shared/constants/constants';
 
 export interface OptionsForm{
@@ -19,7 +20,8 @@ export class FormComponent implements OnInit {
   signIn = ACTIONS.signIn;
 
   constructor(
-    private readonly fb: FormBuilder
+    private readonly fb: FormBuilder,
+    private readonly authSvc: AuthService
     ) { }
 
   ngOnInit(): void {
@@ -29,6 +31,7 @@ export class FormComponent implements OnInit {
 
   onSubmit(): void {
     console.log('Salve');
+    this.authSvc.signUp(this.authForm.value);
 
   }
 
